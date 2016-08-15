@@ -1,4 +1,6 @@
-﻿using System;
+﻿using APITesting.Actions;
+using NUnit.Framework;
+using System;
 using TechTalk.SpecFlow;
 
 namespace APITesting.StepDefinitions
@@ -6,22 +8,32 @@ namespace APITesting.StepDefinitions
     [Binding]
     public class ListPlayersSteps
     {
-        [Given(@"there are players in the system")]
-        public void GivenThereArePlayersInTheSystem()
+        GetRequest getRequest;
+        PostRequest postRequest = new PostRequest();
+        [When(@"i send the get request")]
+        public void WhenISendTheGetRequest()
         {
-            ScenarioContext.Current.Pending();
+            getRequest = new GetRequest("http://localhost:8080/A00144521GaryGunning/rest/user/2", "GET");
         }
-        
-        [When(@"i retrieve the list of players")]
-        public void WhenIRetrieveTheListOfPlayers()
+
+        [Then(@"i the response should be this")]
+        public void ThenITheResponseShouldBeThis(string multilineText)
         {
-            ScenarioContext.Current.Pending();
+            Assert.AreEqual(multilineText, getRequest.GetResponse());
         }
-        
-        [Then(@"there should be somthing")]
-        public void ThenThereShouldBeSomthing()
+
+        [When(@"I post the new user")]
+        public void WhenIPostTheNewUser()
         {
-            ScenarioContext.Current.Pending();
+            postRequest.postRequest("http://localhost:8080/A00144521GaryGunning/rest/user/");
         }
+
+        [Then(@"it should be saved to the database")]
+        public void ThenItShouldBeSavedToTheDatabase()
+        {
+            postRequest.getRequest("http://localhost:8080/A00144521GaryGunning/rest/user/2");
+            Assert.AreEqual("", postRequest.responseReturn());
+        }
+
     }
 }

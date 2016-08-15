@@ -64,18 +64,33 @@ namespace APITesting.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("There are players in the system")]
-        public virtual void ThereArePlayersInTheSystem()
+        [NUnit.Framework.DescriptionAttribute("I want to send a get request and verify it")]
+        public virtual void IWantToSendAGetRequestAndVerifyIt()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("There are players in the system", ((string[])(null)));
-#line 5
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I want to send a get request and verify it", ((string[])(null)));
+#line 4
 this.ScenarioSetup(scenarioInfo);
+#line 5
+testRunner.When("i send the get request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
 #line 6
-testRunner.Given("there are players in the system", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 7
-testRunner.When("i retrieve the list of players", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 8
-testRunner.Then("there should be somthing", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("i the response should be this", "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><users><user><id>1</id><na" +
+                    "me>Gary</name><password>gazz</password></user></users>", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("I want to post to the rest api")]
+        public virtual void IWantToPostToTheRestApi()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I want to post to the rest api", ((string[])(null)));
+#line 12
+this.ScenarioSetup(scenarioInfo);
+#line 13
+testRunner.When("I post the new user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 14
+testRunner.Then("it should be saved to the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
