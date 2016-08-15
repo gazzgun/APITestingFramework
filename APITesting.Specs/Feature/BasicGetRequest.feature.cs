@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace APITesting.Features
+namespace APITesting.Specs.Feature
 {
     using TechTalk.SpecFlow;
     
@@ -18,20 +18,20 @@ namespace APITesting.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("ListPlayers")]
-    public partial class ListPlayersFeature
+    [NUnit.Framework.DescriptionAttribute("BasicGetRequest")]
+    public partial class BasicGetRequestFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "ListPlayers.feature"
+#line 1 "BasicGetRequest.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ListPlayers", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "BasicGetRequest", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,33 +64,24 @@ namespace APITesting.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("I want to send a get request and verify it")]
-        public virtual void IWantToSendAGetRequestAndVerifyIt()
+        [NUnit.Framework.DescriptionAttribute("I want to send a get request for a player and verify the response")]
+        public virtual void IWantToSendAGetRequestForAPlayerAndVerifyTheResponse()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I want to send a get request and verify it", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I want to send a get request for a player and verify the response", ((string[])(null)));
 #line 4
 this.ScenarioSetup(scenarioInfo);
 #line 5
-testRunner.When("i send the get request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
+testRunner.Given("That the API is available at \"http://localhost:8080/A00144521GaryGunning/rest/pla" +
+                    "yer/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
-testRunner.Then("i the response should be this", "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><users><user><id>1</id><na" +
-                    "me>Gary</name><password>gazz</password></user></users>", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.When("I make a get request to \"http://localhost:8080/A00144521GaryGunning/rest/player/1" +
+                    "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("I want to post to the rest api")]
-        public virtual void IWantToPostToTheRestApi()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I want to post to the rest api", ((string[])(null)));
-#line 12
-this.ScenarioSetup(scenarioInfo);
-#line 13
-testRunner.When("I post the new user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 14
-testRunner.Then("it should be saved to the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 7
+testRunner.Then("the repsonse should be", "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<player>\r\n<id>1</id>\r\n<n" +
+                    "ame>Sean Cronin</name>\r\n<age>29</age>\r\n<position>Hooker</position>\r\n<club>Leinst" +
+                    "er</club>\r\n<caps>48</caps>\r\n<height>1.8</height>\r\n<weight>101</weight>\r\n</player" +
+                    ">", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
