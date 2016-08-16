@@ -6,8 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net;
 using Flurl.Http;
+using System.Threading;
+using System.Xml;
 
 namespace APITesting.Common
 {
@@ -29,8 +30,13 @@ namespace APITesting.Common
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             Stream dataStream = response.GetResponseStream();
             StreamReader reader = new StreamReader(dataStream);
-
             string responseFromServer = reader.ReadToEnd();
+            Console.Write(responseFromServer);
+            Thread.Sleep(60000);
+
+          
+
+
             return responseFromServer;
         }
 

@@ -63,25 +63,64 @@ namespace APITesting.Specs.Feature
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 3
+#line 4
+testRunner.Given("That the API is available at \"http://localhost:8080/A00144521GaryGunning/rest/pla" +
+                    "yer/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("I want to send a get request for a player and verify the response")]
         public virtual void IWantToSendAGetRequestForAPlayerAndVerifyTheResponse()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I want to send a get request for a player and verify the response", ((string[])(null)));
-#line 4
-this.ScenarioSetup(scenarioInfo);
-#line 5
-testRunner.Given("That the API is available at \"http://localhost:8080/A00144521GaryGunning/rest/pla" +
-                    "yer/\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 6
+this.ScenarioSetup(scenarioInfo);
+#line 3
+this.FeatureBackground();
+#line 7
 testRunner.When("I make a get request to \"http://localhost:8080/A00144521GaryGunning/rest/player/1" +
                     "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 7
+#line 8
 testRunner.Then("the repsonse should be", "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<player>\r\n<id>1</id>\r\n<n" +
                     "ame>Sean Cronin</name>\r\n<age>29</age>\r\n<position>Hooker</position>\r\n<club>Leinst" +
                     "er</club>\r\n<caps>48</caps>\r\n<height>1.8</height>\r\n<weight>101</weight>\r\n</player" +
                     ">", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("I want to find and verify a specific element of a get request")]
+        [NUnit.Framework.TestCaseAttribute("\"Rory Best\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\"Robbie Henshaw\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\"Sean Cronin\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\"Tadhg Furlong\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\"Cian Healy\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\"Jack McGrath\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\"Mike Ross\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\"Nathan White\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\"Ian Henderson\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\"Mike McCarthy\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\"Donnacha Ryan\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\"Devin Toner\"", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\"Chris Henry\"", new string[0])]
+        public virtual void IWantToFindAndVerifyASpecificElementOfAGetRequest(string playername, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I want to find and verify a specific element of a get request", exampleTags);
+#line 23
+this.ScenarioSetup(scenarioInfo);
+#line 3
+this.FeatureBackground();
+#line 24
+testRunner.When(string.Format("I retreive the xml from the api \"http://localhost:8080/A00144521GaryGunning/rest/" +
+                        "player/\" and check the \"name\" is {0}", playername), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
+testRunner.Then("the test should pass.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -9,8 +9,9 @@ using System.IO;
 
 namespace APITesting.Common
 {
-   public class XMLHelper
+    public class XMLHelper
     {
+        public static bool result=false;
         public static void GenerateDiffGram(string originalFile, string finalFile,
            XmlWriter diffGramWriter)
         {
@@ -30,6 +31,26 @@ namespace APITesting.Common
             var xw = new XmlTextWriter(sw) { Formatting = Formatting.Indented };
             var bIdentical = xmldiff.Compare(r1, r2, xw);
             return bIdentical;
+        }
+
+        public static void VerifyXmlElement(string url, string elementType, string elementValue)
+        {
+           
+            XmlTextReader reader = new XmlTextReader(url);
+            while (reader.Read())
+            {
+                if (reader.Value.Equals(elementValue))
+                {
+                    result = true;
+                }
+                
+            }
+            
+
+        }
+        public static bool ConfirmXML()
+        {
+            return result;
         }
     }
 }
